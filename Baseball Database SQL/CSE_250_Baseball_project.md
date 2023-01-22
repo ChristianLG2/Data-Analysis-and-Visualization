@@ -3,7 +3,7 @@
 __Winter 2022 (Revised/Updated: Winter 2023)__
 ## Project Description:
 
-Throughout this project I beging looking into SQL and how some queries can help finding certain and very specific information within a database. For the sake of fun the selected database to mess around with is going to be about Baseball and some of the math behind the sport, we will find very interesting information. So lets try these queries!
+Throughout this project I started looking into SQL and how through the relational query languages I have been able to help finding certain and very specific information within a set of databases. For the sake of fun the selected data to look into is about the across-country loved sport "Baseball" and some of the math and stats behind the sport, we will find very interesting and fun information. So lets try put in practice those queries!
 
 ### GRAND QUESTION 1
 ####  I Wrote an SQL query that creates a new dataframe about baseball players who attended BYU-Idaho (my alma mater). This new table contains five columns: playerID, schoolID, salary, and the yearID/teamID associated with each salary. Orders the table by salary (highest to lowest) and prints out the table in the report.
