@@ -1,13 +1,12 @@
-# Project 3: Finding relationships in baseball
-__Course CSE 250__
+# Project: Finding relationships in baseball
 __Christian Lira Gonzalez__
 
-## Elevator pitch
+## Project Description:
 
-Throughout this project we beging looking into SQL and how some queries can help us to find certain and very specific information within a database. For the sake of fun our database is going to be about Baseball and some of the math behind the sport, we will find very interesting information. So lets try these queries!
+Throughout this project I beging looking into SQL and how some queries can help finding certain and very specific information within a database. For the sake of fun the selected database to mess around with is going to be about Baseball and some of the math behind the sport, we will find very interesting information. So lets try these queries!
 
 ### GRAND QUESTION 1
-#### Write an SQL query to create a new dataframe about baseball players who attended BYU-Idaho. The new table should contain five columns: playerID, schoolID, salary, and the yearID/teamID associated with each salary. Order the table by salary (highest to lowest) and print out the table in your report.
+####  I Wrote an SQL query that creates a new dataframe about baseball players who attended BYU-Idaho (my alma mater). This new table contains five columns: playerID, schoolID, salary, and the yearID/teamID associated with each salary. Orders the table by salary (highest to lowest) and prints out the table in the report.
 In our first query we are asked to find baseball palyers that attended BYU-Idaho as their college (schoolid) and other information that could give us a better perspective of the sutdent/player.
 So we start by calling those columns we desire that appear in our search an join some tables from where we want to extract the informatoion finally we flter the information we want, and we obtain our first table with playerid, schoolid, yearid, salary and teamid, filtering so we just obatain 10 values in our table for sake of simplification.
 
