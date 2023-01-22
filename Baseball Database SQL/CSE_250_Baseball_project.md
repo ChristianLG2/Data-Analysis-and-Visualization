@@ -1,6 +1,6 @@
-# Project: Finding relationships in baseball
-__Christian Lira Gonzalez__
-
+# Project Report: Finding Relationships in Baseball
+#### Christian Lira Gonzalez
+__Winter 2022 (Updated/Revised: Winter 2023)__
 ## Project Description:
 
 Throughout this project I beging looking into SQL and how some queries can help finding certain and very specific information within a database. For the sake of fun the selected database to mess around with is going to be about Baseball and some of the math behind the sport, we will find very interesting information. So lets try these queries!
@@ -37,6 +37,7 @@ dw2 = dw.query('byuidss/cse-250-baseball-database', q1).dataframe
 print(dw2.to_markdown(index = False))
 
 ```
+##### Query Return Table
 
 | playerid   | schoolid   |   yearid |   salary | teamid   |
 |:-----------|:-----------|---------:|---------:|:---------|
