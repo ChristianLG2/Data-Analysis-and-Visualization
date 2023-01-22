@@ -1,6 +1,6 @@
 # Project Report: Finding Relationships in Baseball
 #### Christian Lira Gonzalez
-__Winter 2022 (Updated/Revised: Winter 2023)__
+__Winter 2022 (Revised/Updated: Winter 2023)__
 ## Project Description:
 
 Throughout this project I beging looking into SQL and how some queries can help finding certain and very specific information within a database. For the sake of fun the selected database to mess around with is going to be about Baseball and some of the math behind the sport, we will find very interesting information. So lets try these queries!
