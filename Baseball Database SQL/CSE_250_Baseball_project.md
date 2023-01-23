@@ -3,10 +3,11 @@
 __Winter 2022 (Revised/Updated: Winter 2023)__
 ## Project Description:
 
+
 Throughout this project I started looking into SQL and how through the relational query languages I have been able to help finding certain and very specific information within a set of databases. For the sake of fun the selected data to look into is about the across-country loved sport "Baseball" and some of the math and stats behind the sport, we will find very interesting and fun information. So lets try put in practice those queries!
 
-### GRAND QUESTION 1
-####  I Wrote an SQL query that creates a new dataframe about baseball players who attended BYU-Idaho (my alma mater). This new table contains five columns: playerID, schoolID, salary, and the yearID/teamID associated with each salary. Orders the table by salary (highest to lowest) and prints out the table in the report.
+### First Query
+####  I Wrote an SQL query that creates a new dataframe displaying baseball players who attended BYU-Idaho (my alma mater). This new table contains five columns: playerID, schoolID, salary, and the yearID/teamID associated with each salary. Orders the table by salary (highest to lowest) and prints out the table in the report.
 In our first query we are asked to find baseball palyers that attended BYU-Idaho as their college (schoolid) and other information that could give us a better perspective of the sutdent/player.
 So we start by calling those columns we desire that appear in our search an join some tables from where we want to extract the informatoion finally we flter the information we want, and we obtain our first table with playerid, schoolid, yearid, salary and teamid, filtering so we just obatain 10 values in our table for sake of simplification.
 
@@ -53,25 +54,25 @@ print(dw2.to_markdown(index = False))
 | lindsma01  | idbyuid    |     2014 |   410000 | FLO      |
 
 
-### GRAND QUESTION 2
-#### This three-part question requires you to calculate batting average (number of hits divided by the number of at-bats)
+### Second Query 
+#### This three-part question required me to calculate batting average (number of hits divided by the number of at-bats)
 
-Second Query part 1:
+###### Second Query part 1:
  Write an SQL query that provides playerID, yearID, and batting average for players with at least one at bat. Sort the table from highest batting average to lowest, and show the top 5 results in your report.
 
-Analysis second Query part 1:
+###### Analysis second Query part 1:
 The main purpose of this first part of the grand question 2 is to create a layout in order to answer for the following parts of the very same question. A we do this through looking for some very specific information and also creating some through some indication in the query for the creation of new values within new columns that is the example of batting average which is the combination and division of two already existing columns "ab" ("atbat") and "h" ("hits") into "hits_atbat" (the new column).
 
-Second Query part 2:
+###### Second Query part 2:
 Use the same query as above, but only include players with more than 10 “at bats” that year. Print the top 5 results.
 
-Analysis second Query part 2:
+###### Analysis second Query part 2:
 In this second part we use our first query as a layout, but in this case we set limits for our search. Now we look for players with more than 10 at bats and we select the top 5 results.
 
-Second Query part 3:
+###### Second Query part 3:
 Now calculate the batting average for players over their entire careers (all years combined). Only include players with more than 100 at bats, and print the top 5 results.
 
-Analysis third Query part 3:
+###### Analysis third Query part 3:
 And finally we do a more specific search of information with the very same query, instead of looking for more than 10 atbats we look for players who in their entire careers have had more than 100 atbats and we print the top 5 results.
 
 ##### TECHNICAL DETAILS
@@ -98,7 +99,7 @@ LIMIT 5;
 dw3 = dw.query('byuidss/cse-250-baseball-database', q2).dataframe
 # %%
 print(dw3.to_markdown(index = False))
-#%%
+#%% 
 
 
 #Second Query:
@@ -140,7 +141,7 @@ dw5 = dw.query('byuidss/cse-250-baseball-database', q2_2).dataframe
 print(dw5.to_markdown(index = False))
 # %%
 ```
-Query 1 Table:
+##### Second Query 1 Table:
 Write an SQL query that provides playerID, yearID, and batting average for players with at least one at bat. Sort the table from highest batting average to lowest, and show the top 5 results in your report.
 | namegiven     |   atbat |   hits |   hits_atbat |   yearid |
 |:--------------|--------:|-------:|-------------:|---------:|
@@ -151,7 +152,7 @@ Write an SQL query that provides playerID, yearID, and batting average for playe
 | Pedro Julio   |      13 |      1 |         13   |     1997 |
 
 
-Query 2 Table: 
+##### Second Query 2 Table: 
 Use the same query as above, but only include players with more than 10 “at bats” that year. Print the top 5 results.
 
 | namegiven     |   atbat |   hits |   hits_atbat |   yearid |
@@ -163,7 +164,7 @@ Use the same query as above, but only include players with more than 10 “at ba
 | Garret Joseph |     647 |    185 |      3.4973  |     2000 |
 
 
-Query Table 3:
+##### Second Query Table 3:
 Now calculate the batting average for players over their entire careers (all years combined). Only include players with more than 100 at bats, and print the top 5 results.
 
 | playerid   |   hits_atbat |   atbat |   hits |
@@ -174,8 +175,8 @@ Now calculate the batting average for players over their entire careers (all yea
 | ripkeca01  |      7.8     |   11551 |      5 |
 | cobbty01   |      4.19444 |   11436 |     36 |
 
-### GRAND QUESTION 3
-#### Pick any two baseball teams and compare them using a metric of your choice (average salary, home runs, number of wins, etc.). Write an SQL query to get the data you need. Use Python if additional data wrangling is needed, then make a graph in Altair to visualize the comparison. Provide the visualization and its description.
+### Third Query 
+#### I Picked two baseball teams and compared them using a metric of my own choice (average salary, home runs, number of wins, etc.). Wrote an SQL query to get the data I needed. Used Python for additional data wrangling which was needed, then made a graph in Altair to visualize the comparison. I also provided the visualization and its description.
 To have a vey specific result and be able to create the individual charts I created a single query for the teams we are comparing and looking into: "Los Angeles Dogers" and "Houston Astros". And in this case we are just comparing the number of hitts they have had as a team and the amount of money they have as budget for every team member combined. So dividing their budget by the number of hits I created a new column called "dolars_per_hit" so we have a measure to compare the two teams and a measure of how much attraction and succes they generate through hits.
 In the chart below we learn that are the "Houston Astros The ones that have less hits but they generate more through each of them compared to the "Los Angeles Dogers that have more hits but the media of each of them reduces the quantity of money they generate through each hit they make as we can observe both in the chart and in the table, tabe which also contains other useful iinformation.
 
@@ -200,13 +201,12 @@ q3_chart2= (alt.Chart(dw7).mark_bar()
 final_chart = q3_chart + q3_chart2
 
 ```
-
+#### Chart Return 
 
 ![](Chart.png)
 
 
-
-
+##### TECHNICAL DETAILS
 ```python 
 q3 = '''
 Select name, t.teamid, t.yearid, SUM (b.h) as hits,
@@ -222,7 +222,7 @@ GROUP BY name
 dw6 = dw.query('byuidss/cse-250-baseball-database', q3).dataframe
 # %%
 print(dw6.to_markdown(index = False))
-# %%
+# %% 
 q3_1 ='''
 Select name, t.teamid, t.yearid, SUM (b.h) as hits,
 SUM (s.salary) as budget,(s.salary/b.h) as dollars_per_hit
@@ -237,13 +237,17 @@ GROUP BY name
 dw7 = dw.query('byuidss/cse-250-baseball-database', q3_1).dataframe
 # %%
 print(dw7.to_markdown(index = False))
+
 ```
+
+##### Query Return Table 
+
 | name           | teamid   |   yearid |     hits |        budget |   dollars_per_hit |
 |:---------------|:---------|---------:|---------:|--------------:|------------------:|
 | Houston Astros | HOU      |     2000 | 39861726 | 2180136390888 |           8601.69 |
 | Los Angeles Dodgers | LAN      |     2000 | 43300422 | 3701988362872 |           5593.22 |
 
-## APPENDIX A (PYTHON CODE)
+## APPENDIX A: (COmplete SQL and PYTHON CODE)
 ```python
 #%%
 import datadotworld as dw
