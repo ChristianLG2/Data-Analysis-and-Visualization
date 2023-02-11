@@ -1,4 +1,4 @@
-# Data-Analysis-and-Visualization
+# Data Analysis and Visualization
 This Folder contains projects that I perfomed during the 2022 Winter semester at BYUI in the Intro to Data Programming class (CSE250).
 For  this folder I selected the analyisis I enjoyed most doing for that class. 
 For each of these projects I included the python script and the final PDF version through Markdown. 
