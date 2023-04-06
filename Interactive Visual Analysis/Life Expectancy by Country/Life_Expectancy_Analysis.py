@@ -8,7 +8,7 @@ import os
 
 #%%
 # Load the data from the CSV file
-data = pd.read_csv('life-expectancy.csv')
+data = pd.read_csv('life_expectancy.csv')
 
 # Plot the life expectancy over time for a specific country
 countries = ['United States', 'Mexico', 'China']

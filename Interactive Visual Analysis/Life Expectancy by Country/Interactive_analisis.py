@@ -12,7 +12,7 @@ import mpld3
 import os
 
 # Load the data from the CSV file
-data = pd.read_csv('life-expectancy.csv')
+data = pd.read_csv('life_expectancy.csv', encoding='ISO-8859-1')
 
 # Create a figure to hold the subplots
 fig, ax = plt.subplots()
@@ -22,20 +22,23 @@ while True:
     # Ask for a country
     country = input("Enter a country name (or 'done' to finish): ")
     
+    # Convert the input to lowercase
+    country = country.lower()
+    
     # Check if the user is done adding countries
-    if country.lower() == 'done':
+    if country == 'done':
         break
     
     # Check if the country exists in the dataset
-    if country not in data['Entity'].unique():
+    if country not in data['Entity'].str.lower().unique():
         print(f"{country} is not in the dataset.")
         continue
     
     # Subset the data for the country
-    subset = data[data['Entity'] == country]
+    subset = data[data['Entity'].str.lower() == country]
     
     # Add the subplot for the country to the figure
-    ax.plot(subset['Year'], subset['Life expectancy (years)'], label=country)
+    ax.plot(subset['Year'], subset['Life expectancy (years)'], label=country.capitalize())
     
 # Add axis labels and legend to the figure
 ax.set_xlabel('Year')
@@ -52,5 +55,7 @@ with open('life-expectancy.html', 'w') as f:
     
 # Show the plot
 plt.show()
-# %%
+
+# Print the current working directory
 print(os.getcwd())
+# %%

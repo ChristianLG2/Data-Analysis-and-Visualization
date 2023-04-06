@@ -1,0 +1,85 @@
+#Christian Lira - Winter 2023
+#The purpose of your code is to visualize the life expectancy over time for selected countries and display the minimum, maximum, and average life expectancy values within a specified range of years. By executing this code, users can visually compare the life expectancy trends of different countries over time, as well as identify the countries with the lowest and highest life expectancies within a specified range of years.
+
+#%%
+import pandas as pd
+import matplotlib
+matplotlib.use('TkAgg') 
+import matplotlib.pyplot as plt
+import mpld3
+import os
+
+# Load the data from the CSV file
+data = pd.read_csv('life-expectancy.csv')
+
+# Create a figure to hold the subplots
+fig, ax = plt.subplots()
+
+countries = []
+
+# Loop to ask for countries until the user stops adding
+while True:
+    # Ask for a country
+    country = input("Enter a country name (or 'done' to finish): ")
+    
+    # Check if the user is done adding countries
+    if country.lower() == 'done':
+        break
+    
+    # Check if the country exists in the dataset
+    if country not in data['Entity'].unique():
+        print(f"{country} is not in the dataset.")
+        continue
+
+    countries.append(country)
+
+# Ask for the year range
+start_year = int(input("Enter the start year (Earliest Possible 1543): "))
+end_year = int(input("Enter the end year(Latest Possible 2019): "))
+
+# Filter the data to the selected year range
+data = data[(data['Year'] >= start_year) & (data['Year'] <= end_year)]
+
+# Calculate the overall min, max, and average life expectancies
+min_life_expectancy = data['Life expectancy (years)'].min()
+max_life_expectancy = data['Life expectancy (years)'].max()
+avg_life_expectancy = data['Life expectancy (years)'].mean()
+
+# Get the countries and years with the overall min, max life expectancies
+min_country_data = data.loc[data['Life expectancy (years)'] == min_life_expectancy].iloc[0]
+max_country_data = data.loc[data['Life expectancy (years)'] == max_life_expectancy].iloc[0]
+
+# Plot the overall min, max, and average life expectancies with labels
+ax.axhline(min_life_expectancy, color='r', linestyle='--', label=f'Min: {min_country_data["Entity"]} ({min_life_expectancy:.1f}), Year {min_country_data["Year"]}')
+ax.axhline(max_life_expectancy, color='g', linestyle='--', label=f'Max: {max_country_data["Entity"]} ({max_life_expectancy:.1f}), Year {max_country_data["Year"]}')
+ax.axhline(avg_life_expectancy, color='b', linestyle='--', label=f'Avg: ({avg_life_expectancy:.1f})')
+
+# Loop through the selected countries and plot the life expectancies
+for country in countries:
+    # Subset the data for the country
+    subset = data[data['Entity'] == country]
+
+    # Add the subplot for the country to the figure
+    ax.plot(subset['Year'], subset['Life expectancy (years)'], label=country)
+
+# Add axis labels and legend to the figure
+ax.set_xlabel('Year')
+ax.set_ylabel('Life Expectancy')
+ax.set_title('Life Expectancy over Time')
+ax.legend()
+
+# Convert the plot to an interactive HTML visualization
+html = mpld3.fig_to_html(fig)
+
+# Save the HTML visualization to a file
+with open('life-expectancy.html', 'w') as f:
+    f.write(html)
+
+# Show the plot
+plt.show()
+
+plt.savefig('life_expectancy_chart.png')
+
+
+# %%
+print(os.getcwd())
